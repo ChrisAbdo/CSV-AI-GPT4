@@ -16,6 +16,7 @@ const CSVUploader: React.FC = () => {
     Papa.parse(file, {
       header: true,
       complete: (results) => {
+        //   @ts-ignore
         const columns: Column<DataRow>[] = results.meta.fields.map(
           (field: string) => ({
             key: field,
@@ -24,6 +25,7 @@ const CSVUploader: React.FC = () => {
           })
         );
 
+        // @ts-ignore
         setData(results.data);
         setColumns(columns);
       },
